@@ -20,19 +20,38 @@ function Pizza(size, sauce, crust, meats, veggies) {
 }
 Order.prototype.whatSize = function() {
   if (this.size === "small"){
-    this.price = 6;
+    this.price += 6;
   } else if (this.size === "medium") {
-    this.price = 9;
+    this.price += 9;
   } else if (this.size === "large") {
-    this.price = 12;
+    this.price += 12;
   } else if (this.size === "x-large") {
-    this.price = 15;
+    this.price += 15;
   } else if (this.size === "challenge") {
-    this.price = 25;
+    this.price += 25;
   }
   return this.price
 }
-Order.prototype.whatSauce = function() {}
-Order.prototype.whatCrust = function() {}
+Order.prototype.whatSauce = function() {
+  if (this.size === "red-tomato"){
+    this.price += 0;
+  } else if (this.size === "white-sauce") {
+    this.price += 2;
+  } else if (this.size === "margherita") {
+    this.price -= 2;
+  }
+  return this.price
+}
+Order.prototype.whatCrust = function() {
+  if (this.size === "thin-crust"){
+    this.price -= 1;
+  } else if (this.size === "hand-tossed") {
+    this.price += 0;
+  } else if (this.size === "brooklyn-style") {
+    this.price += 0;
+  } else if (this.size === "stuffed") {
+    this.price += 3;
+  return this.price
+}
 Order.prototype.whatMeats = function() {}
 Order.prototype.whatVeggies = function() {}
