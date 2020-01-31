@@ -12,6 +12,7 @@
     <div class="jumbotron">
       <h1>Build your Own Pizza!</h1>
     </div>
+
     <form id="configurator">
       <label for="">Please select a pizza size:</label>
       <select name="" id="pizza-size" class="form-control form-control-lg">
@@ -34,26 +35,33 @@
         <option value="brooklyn-style">"Brookylyn stye"</option>
         <option value="stuffed">"Cheese-stuffed crust"</option>
       </select>
-      <label for="">Please select all meat toppings</label><br>
-      <input type="checkbox" name="meat-toppings" value="pepperoni">Pepperoni<br>
-      <input type="checkbox" name="meat-toppings" value="sausage">Sausage<br>
-      <input type="checkbox" name="meat-toppings" value="Ham">Ham<br>
-      <input type="checkbox" name="meat-toppings" value="meatloaf">Meatloaf<br>
-      <input type="checkbox" name="meat-toppings" value="salami">Salami<br>
-      <input type="checkbox" name="meat-toppings" value="bbq-chicken">BBQ Chicken<br>
-      <label for="">Please select all vegetable toppings</label><br>
-      <input type="checkbox" name="veggie-toppings" value="mushrooms">Mushrooms<br>
-      <input type="checkbox" name="veggie-toppings" value="green-peppers">Green Peppers<br>
-      <input type="checkbox" name="veggie-toppings" value="olives"> Olives<br>
-      <input type="checkbox" name="veggie-toppings" value="onions"> Onions<br>
-      <input type="checkbox" name="veggie-toppings" value="pineapple"> Pineapple<br>
-      <input type="checkbox" name="veggie-toppings" value="artichoke-hearts"> Artichoke Hearts<br>
-
+      <div id="meat-toppings">
+        <label for="">Please select all meat toppings</label><br>
+        <input type="checkbox" name="meat-toppings" value="pepperoni">Pepperoni<br>
+        <input type="checkbox" name="meat-toppings" value="sausage">Sausage<br>
+        <input type="checkbox" name="meat-toppings" value="Ham">Ham<br>
+        <input type="checkbox" name="meat-toppings" value="meatloaf">Meatloaf<br>
+        <input type="checkbox" name="meat-toppings" value="salami">Salami<br>
+        <input type="checkbox" name="meat-toppings" value="bbq-chicken">BBQ Chicken<br>
+      </div>
+      <div id="veggie-toppings">
+        <label for="">Please select all vegetable toppings</label><br>
+        <input type="checkbox" name="veggie-toppings" value="mushrooms">Mushrooms<br>
+        <input type="checkbox" name="veggie-toppings" value="green-peppers">Green Peppers<br>
+        <input type="checkbox" name="veggie-toppings" value="olives"> Olives<br>
+        <input type="checkbox" name="veggie-toppings" value="onions"> Onions<br>
+        <input type="checkbox" name="veggie-toppings" value="pineapple"> Pineapple<br>
+        <input type="checkbox" name="veggie-toppings" value="artichoke-hearts"> Artichoke Hearts<br>
+      </div>
       <button type='submit' class="btn btn-block btn-success">Submit</button>
-    </form>`
+    </form>
     <div id="output">
       <p><em>Your pizza selection:</em></p>
-      <ul id="appendHere"></ul>
+      <ul id="appendHere">
+        <p>Your toppings:</p>
+        <li><span id="meats"></span></li>
+        <li><span id="veggies"></span></li>
+      </ul>
 
     </div>
   </div>
