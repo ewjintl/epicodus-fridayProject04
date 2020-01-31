@@ -21,6 +21,7 @@ Order.prototype.findPizza = function (id) {
   };
   return false;
 }
+
 function Pizza(size, sauce, crust, meats, veggies) {
   this.size = size;
   this.sauce = sauce;
@@ -62,10 +63,13 @@ Order.prototype.whatCrust = function () {
     this.price += 0;
   } else if (this.size === "stuffed") {
     this.price += 3;
+  }
     return this.price
   }
   // Order.prototype.whatMeats = function () { }
   // Order.prototype.whatVeggies = function () { }
+  // Do I need to access checklist.length val here and for each instance += $.75 here? 
+  // or should it be done upon button submit below in the frontend logic?
 
   // FRONTEND LOGIC //
   var newOrder = new Order();
@@ -77,24 +81,30 @@ Order.prototype.whatCrust = function () {
       var selectedSize = $("select#pizza-size").val();
       var selectedSauce = $("select#pizza-sauce").val();
       var selectedCrust = $("select#pizza-crust").val();
-      var newPizza = new Pizza(selectedSize, selectedSauce, selectedCrust);
+      $("select#pizza-size").val();
+      $("select#pizza-sauce").val();
+      $("select#pizza-crust").val();
+      
+      var newPizza = new Pizza(selectedSize, selectedSauce, selectedCrust, [meats], [veggies]);
       newOrder.addPizza(newPizza);
+      console.log(newPizza);
       console.log(newOrder.Pizza);
+      // newOrder.calcPrice();
 
+      // $("#output").text(`Total Price:${newOrder.price}`);
+      $("#appendHere").show();
       $("#meat-toppings").show();
       $("input:checkbox[name=meat-toppings]:checked").each(function () {
         var meats = $(this).val();
         $('#meats').append(meats + "<br>");
-      });
+      })
 
       $("#veggie-toppings").show();
       $("input:checkbox[name=veggie-toppings]:checked").each(function () {
         var veggies = $(this).val();
         $('#veggies').append(veggies + "<br>");
-      });
+      })
 
       $('#configurator').hide();
     });
   });
-
-  
