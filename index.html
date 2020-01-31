@@ -8,6 +8,54 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Build your Own Pizza!</h1>
+    </div>
+    <form id="configurator">
+      <label for="">Please select a pizza size:</label>
+      <select name="" id="pizza-size" class="form-control form-control-lg">
+        <option value="small">Small</option>
+        <option value="medium">Mediun</option>
+        <option value="large">Large</option>
+        <option value="x-large">X-large</option>
+        <option value="challenge">Challenge</option>
+      </select>
+      <label for="">Please select a pizza sauce:</label>
+      <select name="" id="pizza-sauce" class="form-control form-control-lg">
+        <option value="red-tomato">Red Tomato</option>
+        <option value="white-sauce">White sauce</option>
+        <option value="margherita">Margherita</option>
+      </select>
+      <label for="">Please select a pizza crust type:</label>
+      <select name="" id="pizza-crust" class="form-control form-control-lg">
+        <option value="thin-crust">"Thin crust""</option>
+        <option value="hand-tossed">"Hand tossed""</option>
+        <option value="brooklyn-style">"Brookylyn stye"</option>
+        <option value="stuffed">"Cheese-stuffed crust"</option>
+      </select>
+      <label for="">Please select all meat toppings</label><br>
+      <input type="checkbox" name="meat-toppings" value="pepperoni">Pepperoni<br>
+      <input type="checkbox" name="meat-toppings" value="sausage">Sausage<br>
+      <input type="checkbox" name="meat-toppings" value="Ham">Ham<br>
+      <input type="checkbox" name="meat-toppings" value="meatloaf">Meatloaf<br>
+      <input type="checkbox" name="meat-toppings" value="salami">Salami<br>
+      <input type="checkbox" name="meat-toppings" value="bbq-chicken">BBQ Chicken<br>
+      <label for="">Please select all vegetable toppings</label><br>
+      <input type="checkbox" name="meat-toppings" value="mushrooms">Mushrooms<br>
+      <input type="checkbox" name="meat-toppings" value="green-peppers">Green Peppers<br>
+      <input type="checkbox" name="meat-toppings" value="olives"> Olives<br>
+      <input type="checkbox" name="meat-toppings" value="onions"> Onions<br>
+      <input type="checkbox" name="meat-toppings" value="pineapple"> Pineapple<br>
+      <input type="checkbox" name="meat-toppings" value="artichoke-hearts"> Artichoke Hearts<br>
+
+      <button type='submit' class="btn btn-block btn-success">Submit</button>
+    </form>
+    <div id="output">
+      <p><em>Your pizza selection:</em></p>
+      <ul id="appendHere"></ul>
+
+    </div>
+  </div>
 </body>
 </html>
