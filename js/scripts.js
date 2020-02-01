@@ -63,9 +63,32 @@ Order.prototype.whatCrust = function () {
   } else if (this.size === "stuffed") {
     this.price += 3;
   }
-    return this.price
-  }
+  return this.price
+}
 
+Order.prototype.whatMeats = function () {
+  $("input:checkbox[name=meat-toppings]:checked").each(function () {
+    var meats = $(this).val();
+    $('#meats').append(meats + "<br>");
+    console.log(meats);
+  })
+  var countMeats = function() {
+    var n = $("input:checkbox[name=meat-toppings]:checked").length;
+  };
+}
+
+Order.prototype.whatVeggies = function () {
+  $("#veggie-toppings").show();
+  $("input:checkbox[name=veggie-toppings]:checked").each(function () {
+    var veggies = $(this).val();
+    $('#veggies').append(veggies + "<br>");
+    console.log(veggies);
+  })
+  var countVeggies = function() {
+    var n = $("input:checkbox[name=meat-toppings]:checked").length;
+  };
+}
+  
   // FRONTEND LOGIC //
   var newOrder = new Order();
 
@@ -85,33 +108,15 @@ Order.prototype.whatCrust = function () {
       newOrder.whatSize();
       newOrder.whatSauce();
       newOrder.whatCrust();
+      // newOrder.whatMeats();
+      // newOrder.whatVeggies();
+      // or
+      // countMeats();
+      // countVeggies();
+
       $("#output").text(`Total Price:${newOrder.price}`);
       $("#appendHere").show();
-
       $("#meat-toppings").show();
-      $("input:checkbox[name=meat-toppings]:checked").each(function () {
-        var meats = $(this).val();
-        $('#meats').append(meats + "<br>");
-        console.log(meats);
-      })
-      var countMeats = function() {
-        var n = $("input:checkbox[name=meat-toppings]:checked").length;
-      };
-      countMeats();
-      newOrder.whatMeats();
-
-      $("#veggie-toppings").show();
-      $("input:checkbox[name=veggie-toppings]:checked").each(function () {
-        var veggies = $(this).val();
-        $('#veggies').append(veggies + "<br>");
-        console.log(veggies);
-      })
-      var countVeggies = function() {
-        var n = $("input:checkbox[name=meat-toppings]:checked").length;
-      };
-      countVeggies();
-      newOrder.whatVeggies();
-
       $('#configurator').hide();
     });
   });
