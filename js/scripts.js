@@ -65,10 +65,6 @@ Order.prototype.whatCrust = function () {
   }
     return this.price
   }
-  // Order.prototype.whatMeats = function () {}
-  // Order.prototype.whatVeggies = function () {}
-  // Do I need to access checklist.length val here and for each instance += $.75 here?
-  // or should it be done upon button submit below in the frontend logic?
 
   // FRONTEND LOGIC //
   var newOrder = new Order();
@@ -100,7 +96,6 @@ Order.prototype.whatCrust = function () {
       })
       var countMeats = function() {
         var n = $("input:checkbox[name=meat-toppings]:checked").length;
-        //take n and use it to calculate price somehow
       };
       countMeats();
       newOrder.whatMeats();
@@ -113,7 +108,6 @@ Order.prototype.whatCrust = function () {
       })
       var countVeggies = function() {
         var n = $("input:checkbox[name=meat-toppings]:checked").length;
-        //take n and use it to calculate updated price somehow
       };
       countVeggies();
       newOrder.whatVeggies();
