@@ -1,27 +1,27 @@
 // BACKEND LOGIC //
 function Order() {
-  pizza = [];
+  this.pizza = [];
   this.currentId = 0;
 }
 Order.prototype.addPizza = function (pizza) {
-  var pizzaId = this.assignId();
+  pizzaId = this.assignId();
   this.pizza.push(pizza);
 }
 Order.prototype.assignId = function () {
-  this.currentId++;
-  return this.currentId[i];
+  this.currentId += 1;
+  return this.currentId;
 }
 Order.prototype.findPizza = function (id) {
-  for (var i = 0; i < this.Pizza.length; i++) {
-    if (this.Pizza[i]) {
-      if (this.Pizza[i].id == id) {
-        return this.Pizza[i];
+  for (var i = 0; i < this.pizza.length; i++) {
+    if (this.pizza[i]) {
+      if (this.pizza[i].id == id) {
+        return this.pizza[i];
       }
     }
   };
   return false;
 }
-function Pizzas(size, sauce, crust, meats, veggies) {
+function Pizza(size, sauce, crust, meats, veggies) {
   this.size = size;
   this.sauce = sauce;
   this.crust = crust;
