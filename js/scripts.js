@@ -21,8 +21,7 @@ Order.prototype.findPizza = function (id) {
   };
   return false;
 }
-
-function Pizza(size, sauce, crust, meats, veggies) {
+function Pizzas(size, sauce, crust, meats, veggies) {
   this.size = size;
   this.sauce = sauce;
   this.crust = crust;
@@ -66,9 +65,9 @@ Order.prototype.whatCrust = function () {
   }
     return this.price
   }
-  // Order.prototype.whatMeats = function () { }
-  // Order.prototype.whatVeggies = function () { }
-  // Do I need to access checklist.length val here and for each instance += $.75 here? 
+  // Order.prototype.whatMeats = function () {}
+  // Order.prototype.whatVeggies = function () {}
+  // Do I need to access checklist.length val here and for each instance += $.75 here?
   // or should it be done upon button submit below in the frontend logic?
 
   // FRONTEND LOGIC //
@@ -77,33 +76,47 @@ Order.prototype.whatCrust = function () {
   $(document).ready(function () {
     $("form#configurator").submit(function(event) {
       event.preventDefault();
-
       var selectedSize = $("select#pizza-size").val();
       var selectedSauce = $("select#pizza-sauce").val();
       var selectedCrust = $("select#pizza-crust").val();
       $("select#pizza-size").val();
       $("select#pizza-sauce").val();
       $("select#pizza-crust").val();
-      
       var newPizza = new Pizza(selectedSize, selectedSauce, selectedCrust, [meats], [veggies]);
       newOrder.addPizza(newPizza);
       console.log(newPizza);
       console.log(newOrder.Pizza);
-      // newOrder.calcPrice();
-
-      // $("#output").text(`Total Price:${newOrder.price}`);
+      newOrder.whatSize();
+      newOrder.whatSauce();
+      newOrder.whatCrust();
+      $("#output").text(`Total Price:${newOrder.price}`);
       $("#appendHere").show();
+
       $("#meat-toppings").show();
       $("input:checkbox[name=meat-toppings]:checked").each(function () {
         var meats = $(this).val();
         $('#meats').append(meats + "<br>");
+        console.log(meats);
       })
+      var countMeats = function() {
+        var n = $("input:checkbox[name=meat-toppings]:checked").length;
+        //take n and use it to calculate price somehow
+      };
+      countMeats();
+      newOrder.whatMeats();
 
       $("#veggie-toppings").show();
       $("input:checkbox[name=veggie-toppings]:checked").each(function () {
         var veggies = $(this).val();
         $('#veggies').append(veggies + "<br>");
+        console.log(veggies);
       })
+      var countVeggies = function() {
+        var n = $("input:checkbox[name=meat-toppings]:checked").length;
+        //take n and use it to calculate updated price somehow
+      };
+      countVeggies();
+      newOrder.whatVeggies();
 
       $('#configurator').hide();
     });
